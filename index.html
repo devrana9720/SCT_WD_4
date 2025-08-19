@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do App</title>
+    <link rel="stylesheet" href="./task4.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="background-shapes"></div>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>What's Up?</h1>
+            <p id="date-display"></p>
+        </header>
+
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Enter a new task..." required>
+            <div class="form-row">
+                <input type="datetime-local" id="task-due-date" title="Set a due date">
+                <select id="task-priority" title="Set priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit" class="add-task-btn" title="Add Task">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="task-stats">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <span id="progress-text">0% Complete</span>
+        </div>
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="task-list-container">
+            <ul id="task-list">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
+            <div id="empty-state" style="display: none;">
+                <img src="https://img.icons8.com/clouds/200/checklist.png" alt="Checklist icon">
+                <p>No tasks yet. Add one to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Edit Task</h2>
+            <input type="text" id="edit-task-input">
+            <input type="datetime-local" id="edit-task-due-date">
+            <select id="edit-task-priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button id="save-edit-btn">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="task4.js"></script>
+</body>
+</html>
